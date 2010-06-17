@@ -8,7 +8,7 @@ class Capybara::Driver::Celerity < Capybara::Driver::Base
       value = if name.to_sym == :class
         node.class_name
       else
-        node.send(name.to_sym)
+        node.object.getAttribute(name.to_sym)
       end
       return value if value and not value.to_s.empty?
     end
